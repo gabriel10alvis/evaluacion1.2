@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Viajes y Destinos | Galería de Álbumes</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="galeria.css">
+</head>
+<body>
+
+  <!-- HEADER & NAVBAR -->
+  <header class="site-header" id="header">
+    <div class="header-container">
+      <a href="#" class="logo">
+        <div class="logo-icon"><i class="fa-solid fa-compass"></i></div>
+        <span class="logo-text">Viajes<span>&</span>Destinos</span>
+      </a>
+
+      <div class="search-bar">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="searchInput" placeholder="Buscar álbum, destino o lugar...">
+      </div>
+
+      <nav class="navbar" id="navbar">
+        <a href="#hero" class="nav-link active"><i class="fa-solid fa-house"></i> Inicio</a>
+        <a href="#carrusel" class="nav-link"><i class="fa-solid fa-fire"></i> Populares</a>
+        <a href="#albumes-cta" class="nav-link"><i class="fa-solid fa-images"></i> Álbumes</a>
+        <a href="#galeria" class="nav-link"><i class="fa-solid fa-photo-film"></i> Galería</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="btn btn-primary btn-upload" id="openUploadBtn">
+          <i class="fa-solid fa-cloud-arrow-up"></i>
+          <span>Subir Foto</span>
+        </button>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Menú">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section" id="hero">
+    <div class="hero-bg-overlay"></div>
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <i class="fa-solid fa-sparkles"></i> Tu diario fotográfico de viajes
+        </div>
+        <h1 class="hero-title">Colecciona tus <span>momentos</span> y rincones favoritos del mundo.</h1>
+        <p class="hero-description">
+          Sube tus fotos desde cualquier teléfono o laptop, aplícales filtros aesthetic en tiempo real, organízalas por álbumes y descárgalas en alta calidad para compartir.
+        </p>
+
+        <div class="hero-btns">
+          <button class="btn btn-primary btn-lg" onclick="document.getElementById('openUploadBtn').click()">
+            <i class="fa-solid fa-camera"></i> Subir mis Recuerdos
+          </button>
+          <a href="#galeria" class="btn btn-secondary btn-lg">
+            <i class="fa-regular fa-compass"></i> Explorar Galería
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number" id="statPhotosCount">0</span>
+            <span class="stat-label">Fotos en Galería</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number">4</span>
+            <span class="stat-label">Álbumes Temáticos</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Gratis & Guardado Local</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARRUSEL SECTION -->
+  <section class="carousel-section" id="carrusel">
+    <div class="section-container">
+      <div class="section-header">
+        <div>
+          <span class="section-subtitle"><i class="fa-solid fa-globe"></i> Destinos Destacados</span>
+          <h2 class="section-title">Inspiración para tu próximo viaje</h2>
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-btn prev-btn" id="carouselPrev" aria-label="Anterior"><i class="fa-solid fa-arrow-left"></i></button>
+          <button class="carousel-btn next-btn" id="carouselNext" aria-label="Siguiente"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+
+      <div class="carousel-wrapper">
+        <div class="carousel-track" id="carouselTrack">
+          <!-- Cards generadas o estáticas -->
+          <div class="carousel-card">
+            <img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=800&q=80" alt="Santorini">
+            <div class="card-overlay">
+              <span class="card-tag">Grecia</span>
+              <h3 class="card-title">Santorini Atardecer</h3>
+              <p class="card-desc">Calles blancas y domos azules frente al Mar Egeo.</p>
+            </div>
+          </div>
+          <div class="carousel-card">
+            <img src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=800&q=80" alt="Tokio">
+            <div class="card-overlay">
+              <span class="card-tag">Japón</span>
+              <h3 class="card-title">Tokio Neón</h3>
+              <p class="card-desc">Modernidad, cultura pop y gastronomía nocturna.</p>
+            </div>
+          </div>
+          <div class="carousel-card">
+            <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80" alt="Bali">
+            <div class="card-overlay">
+              <span class="card-tag">Indonesia</span>
+              <h3 class="card-title">Bali Tropical</h3>
+              <p class="card-desc">Arrozales sagrados y templos rodeados de selva.</p>
+            </div>
+          </div>
+          <div class="carousel-card">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Yosemite">
+            <div class="card-overlay">
+              <span class="card-tag">EE. UU.</span>
+              <h3 class="card-title">Yosemite Valley</h3>
+              <p class="card-desc">Naturaleza virgen, acantilados y bosques gigantes.</p>
+            </div>
+          </div>
+          <div class="carousel-card">
+            <img src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=800&q=80" alt="Tailandia">
+            <div class="card-overlay">
+              <span class="card-tag">Tailandia</span>
+              <h3 class="card-title">Isla Phi Phi</h3>
+              <p class="card-desc">Aguas turquesas e impresionantes acantilados calizos.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA TARGETS / ÁLBUMES CATEGORIES SECTION -->
+  <section class="cta-albums-section" id="albumes-cta">
+    <div class="section-container">
+      <div class="section-header text-center">
+        <span class="section-subtitle"><i class="fa-solid fa-folder-open"></i> Organiza tus Recuerdos</span>
+        <h2 class="section-title">Categorías del Álbum "Viajes y Destinos"</h2>
+        <p class="section-desc">Selecciona una categoría para filtrar tus fotografías instantáneamente.</p>
+      </div>
+
+      <div class="cta-grid">
+        <div class="cta-card active" data-category="all">
+          <div class="cta-bg" style="background-image: url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=800&q=80');"></div>
+          <div class="cta-content">
+            <div class="cta-icon"><i class="fa-solid fa-layer-group"></i></div>
+            <h3>Todas las Fotos</h3>
+            <p>Visualiza toda la colección guardada</p>
+            <span class="cta-link">Ver álbum completo <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </div>
+
+        <div class="cta-card" data-category="playas">
+          <div class="cta-bg" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80');"></div>
+          <div class="cta-content">
+            <div class="cta-icon"><i class="fa-solid fa-umbrella-beach"></i></div>
+            <h3>Playas Paradisíacas</h3>
+            <p>Atardeceres, arena blanca y mar turquesa</p>
+            <span class="cta-link">Explorar playas <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </div>
+
+        <div class="cta-card" data-category="montanas">
+          <div class="cta-bg" style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80');"></div>
+          <div class="cta-content">
+            <div class="cta-icon"><i class="fa-solid fa-mountain-sun"></i></div>
+            <h3>Montañas & Aventura</h3>
+            <p>Senderismo, cumbres e itinerarios de naturaleza</p>
+            <span class="cta-link">Explorar montañas <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </div>
+
+        <div class="cta-card" data-category="ciudades">
+          <div class="cta-bg" style="background-image: url('https://images.unsplash.com/photo-1477959858617-67f30ac4ce78?auto=format&fit=crop&w=800&q=80');"></div>
+          <div class="cta-content">
+            <div class="cta-icon"><i class="fa-solid fa-city"></i></div>
+            <h3>Ciudades & Cultura</h3>
+            <p>Arquitectura, luces urbanas y rincones históricos</p>
+            <span class="cta-link">Explorar ciudades <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERÍA & FILTROS SECTION -->
+  <section class="gallery-section" id="galeria">
+    <div class="section-container">
+      <div class="gallery-header">
+        <div>
+          <span class="section-subtitle"><i class="fa-solid fa-photo-film"></i> Álbum: Viajes y Destinos</span>
+          <h2 class="section-title" id="currentCategoryTitle">Galería de Fotos</h2>
+        </div>
+
+        <div class="filter-chips" id="filterChips">
+          <button class="chip active" data-filter="all">Todos</button>
+          <button class="chip" data-filter="playas">Playas</button>
+          <button class="chip" data-filter="montanas">Montañas</button>
+          <button class="chip" data-filter="ciudades">Ciudades</button>
+          <button class="chip" data-filter="escapadas">Escapadas</button>
+        </div>
+      </div>
+
+      <!-- GRID DE FOTOS -->
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Tarjetas dinámicas se insertarán aquí por JS -->
+      </div>
+
+      <!-- Estado Vacío -->
+      <div class="empty-state hidden" id="emptyState">
+        <div class="empty-icon"><i class="fa-regular fa-image"></i></div>
+        <h3>No hay fotos en esta categoría</h3>
+        <p>Añade nuevas fotos de tus viajes desde tu teléfono o computadora.</p>
+        <button class="btn btn-primary" onclick="document.getElementById('openUploadBtn').click()">
+          <i class="fa-solid fa-plus"></i> Subir la primera foto
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENT BLOCKS SECTION -->
+  <section class="blocks-section">
+    <div class="section-container">
+      <div class="section-header text-center">
+        <span class="section-subtitle"><i class="fa-solid fa-wand-magic-sparkles"></i> Herramientas de Edición</span>
+        <h2 class="section-title">Personaliza tus fotos antes de compartir</h2>
+      </div>
+
+      <div class="blocks-grid">
+        <div class="block-card">
+          <div class="block-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+          <h3>Multi-dispositivo</h3>
+          <p>Carga fotos tomadas con tu smartphone (iOS/Android) o computadora. Sincronización guardada localmente.</p>
+        </div>
+
+        <div class="block-card">
+          <div class="block-icon"><i class="fa-solid fa-sliders"></i></div>
+          <h3>Filtros Fotográficos</h3>
+          <p>Aplica estilos como Sepia, Blanco & Negro, Warm Sunset, Vintage y Brillo con un solo clic.</p>
+        </div>
+
+        <div class="block-card">
+          <div class="block-icon"><i class="fa-solid fa-download"></i></div>
+          <h3>Descarga Directa</h3>
+          <p>Procesa y descarga tu foto editada en alta resolución lista para publicar en tus redes sociales.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <div class="logo-icon"><i class="fa-solid fa-compass"></i></div>
+          <span class="logo-text">Viajes<span>&</span>Destinos</span>
+        </a>
+        <p class="footer-desc">
+          El espacio ideal para jóvenes aventureros que aman viajar, inmortalizar momentos y compartir recuerdos con estilo pastel.
+        </p>
+        <div class="social-links">
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-links-group">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="#hero">Inicio</a></li>
+          <li><a href="#carrusel">Populares</a></li>
+          <li><a href="#albumes-cta">Categorías</a></li>
+          <li><a href="#galeria">Galería de Fotos</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-group">
+        <h4>Álbumes</h4>
+        <ul>
+          <li><a href="#galeria">Playas Paradisíacas</a></li>
+          <li><a href="#galeria">Montañas & Aventuras</a></li>
+          <li><a href="#galeria">Ciudades Culturales</a></li>
+          <li><a href="#galeria">Escapadas de Finde</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-newsletter">
+        <h4>Newsletter Viajera</h4>
+        <p>Recibe los mejores tips de viajes y nuevos presets para tus fotos.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('¡Gracias por suscribirte!');">
+          <input type="email" placeholder="Tu correo electrónico..." required>
+          <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 <strong>Viajes y Destinos</strong>. Todos los derechos reservados. Diseñado en tono Amarillo Pastel ✨</p>
+    </div>
+  </footer>
+
+  <!-- MODAL: SUBIR FOTO -->
+  <div class="modal-backdrop hidden" id="uploadModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-cloud-arrow-up"></i> Cargar nueva foto</h3>
+        <button class="modal-close" id="closeUploadModal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <form id="uploadForm">
+        <div class="dropzone" id="dropzone">
+          <i class="fa-solid fa-file-image dropzone-icon"></i>
+          <p><strong>Arrastra una imagen aquí</strong> o haz clic para seleccionar</p>
+          <span>Formatos: JPG, PNG, WEBP (Máx 10MB)</span>
+          <input type="file" id="fileInput" accept="image/*" class="hidden-input">
+        </div>
+
+        <div class="image-preview-container hidden" id="uploadPreviewContainer">
+          <img id="uploadPreviewImg" src="" alt="Vista previa">
+          <button type="button" class="btn-remove-preview" id="removePreviewBtn"><i class="fa-solid fa-trash"></i> Cambiar imagen</button>
+        </div>
+
+        <div class="form-group">
+          <label for="photoTitle">Título del lugar / destino</label>
+          <input type="text" id="photoTitle" placeholder="Ej: Atardecer en la playa..." required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="photoCategory">Álbum / Categoría</label>
+            <select id="photoCategory" required>
+              <option value="playas">Playas Paradisíacas</option>
+              <option value="montanas">Montañas & Aventuras</option>
+              <option value="ciudades">Ciudades & Cultura</option>
+              <option value="escapadas">Escapadas de Finde</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="photoLocation">Ubicación / País</label>
+            <input type="text" id="photoLocation" placeholder="Ej: Cancún, México" required>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="cancelUploadBtn">Cancelar</button>
+          <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Guardar en Álbum</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: LIGHTBOX & EDITOR DE FILTROS -->
+  <div class="modal-backdrop hidden" id="lightboxModal">
+    <div class="modal-card lightbox-card">
+      <button class="modal-close lightbox-close" id="closeLightbox"><i class="fa-solid fa-xmark"></i></button>
+      
+      <div class="lightbox-grid">
+        <div class="lightbox-media">
+          <div class="img-wrapper">
+            <img id="lightboxImg" class="filter-normal" src="" alt="Foto ampliada">
+          </div>
+        </div>
+
+        <div class="lightbox-sidebar">
+          <div class="lightbox-info">
+            <span class="badge" id="lightboxCategory">Categoría</span>
+            <h2 id="lightboxTitle">Título de la imagen</h2>
+            <p class="location-text"><i class="fa-solid fa-location-dot"></i> <span id="lightboxLocation">Ubicación</span></p>
+          </div>
+
+          <!-- SECCIÓN DE FILTROS DYNÁMICOS -->
+          <div class="filter-controls">
+            <h4><i class="fa-solid fa-wand-magic-sparkles"></i> Filtros de Imagen</h4>
+            <div class="filter-buttons-grid">
+              <button class="filter-btn active" data-css-filter="filter-normal">Normal</button>
+              <button class="filter-btn" data-css-filter="filter-vintage">Vintage</button>
+              <button class="filter-btn" data-css-filter="filter-warm">Cálido</button>
+              <button class="filter-btn" data-css-filter="filter-bw">B&N Elegante</button>
+              <button class="filter-btn" data-css-filter="filter-sepia">Sepia Retro</button>
+              <button class="filter-btn" data-css-filter="filter-sunset">Atardecer</button>
+              <button class="filter-btn" data-css-filter="filter-bright">Brillo Pastel</button>
+            </div>
+          </div>
+
+          <div class="lightbox-actions">
+            <button class="btn btn-like" id="likeBtn">
+              <i class="fa-regular fa-heart"></i> <span id="likeCount">0</span>
+            </button>
+            <button class="btn btn-primary" id="downloadBtn">
+              <i class="fa-solid fa-download"></i> Descargar Foto
+            </button>
+            <button class="btn btn-danger" id="deletePhotoBtn" title="Eliminar Foto">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="galeria.js"></script>
+</body>
+</html>
